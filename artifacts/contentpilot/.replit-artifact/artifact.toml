@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ContentPilot"
+description = "An open-source AI content strategy platform for real estate agents, creators, and small businesses. Turn business, audience, platform, offer, and brand voice into tailored social content strategies."
+version = "1.0.0"
+id = "artifacts/contentpilot"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22675
+
+[services.development]
+run = "pnpm --filter @workspace/contentpilot run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/contentpilot", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/contentpilot/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22675"
+BASE_PATH = "/"

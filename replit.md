@@ -1,6 +1,6 @@
-# [Project name]
+# ContentPilot
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An open-source AI content strategy platform for real estate agents, creators, and small businesses.
 
 ## Run & Operate
 
@@ -8,8 +8,8 @@ _Replace the heading above with the project's name, and this line with one sente
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/contentpilot run typecheck` — typecheck the web app
+- Required for live generation: `ANTHROPIC_API_KEY` as a server-side secret
 
 ## Stack
 
@@ -22,23 +22,30 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/contentpilot/` — ContentPilot landing page and strategy generator
+- `artifacts/api-server/src/routes/generate.ts` — server-side Claude request and response validation
+- `lib/api-spec/openapi.yaml` — source of truth for API contracts
+- `lib/api-client-react/src/generated/` and `lib/api-zod/src/generated/` — generated API hooks and schemas
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Strategy generation is stateless; this MVP intentionally has no accounts, payments, or database.
+- The Anthropic API key is used only by the API server and must never be exposed to the browser.
+- If the key is missing, `/api/generate` returns a setup-required error; no placeholder strategy is returned.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Visitors can learn about the product on `/` and generate a platform-specific social content strategy on `/app` after `ANTHROPIC_API_KEY` is configured.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep setup steps clear for someone new to coding.
+- Keep the product positioned as an early-stage open-source AI content strategy platform, not a generic AI writing chatbot.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- After changing `lib/api-spec/openapi.yaml`, run API codegen before using the generated types.
+- To enable live Claude calls, add `ANTHROPIC_API_KEY` in Replit's Tools → Secrets pane and restart the API Server workflow.
 
 ## Pointers
 

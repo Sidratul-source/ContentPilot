@@ -1,0 +1,410 @@
+Build a complete, production-ready MVP called "ContentPilot".
+
+IMPORTANT CONTEXT:
+I am completely new to coding. I am using AI-assisted/vibe coding to build this project, so explain important setup steps clearly and do not assume I understand programming, APIs, GitHub, environment variables, deployment, or databases.
+
+The goal is to build a legitimate early-stage open-source AI developer platform/product that can eventually be hosted publicly, connected to a custom domain, published on GitHub, and submitted to startup programs.
+
+PRODUCT:
+
+Name: ContentPilot
+
+Positioning:
+ContentPilot is an open-source AI content strategy platform for real estate agents, creators, and small businesses.
+
+It helps businesses turn basic information about their business, audience, offer, platform, and brand voice into structured social media content strategies.
+
+The product should be presented as an early-stage hosted AI platform, not simply as a generic AI chatbot.
+
+CORE USER FLOW:
+
+The user should visit ContentPilot and see a clean, professional interface.
+
+They should be able to enter:
+
+1. Business type
+2. Target audience
+3. Social media platform
+4. Product or service
+5. Brand tone
+
+Example:
+
+Business type:
+Real estate agent
+
+Target audience:
+First-time home buyers in New Jersey
+
+Social platform:
+Instagram
+
+Product/service:
+Residential real estate
+
+Brand tone:
+Casual, educational, trustworthy
+
+Then they click:
+
+"Generate Strategy"
+
+The application should eventually send this information securely to an LLM API and generate a complete content strategy.
+
+AI OUTPUT:
+
+Generate:
+
+1. 10 content ideas
+2. 10 short-form video hooks
+3. 3 short-form video scripts
+4. 5 carousel ideas
+5. 3 calls to action
+
+The output should be organized into clear sections and be easy to copy.
+
+Do not generate generic filler.
+
+The prompt sent to the LLM should instruct the model to act as an experienced content strategist and tailor the results specifically to the user's business, audience, platform, product/service, and brand tone.
+
+LLM/API:
+
+The final application should use the Anthropic Claude API.
+
+However, I DO NOT CURRENTLY HAVE AN ANTHROPIC API KEY.
+
+Therefore:
+
+- Build the application architecture so Claude API integration is ready.
+- Do not invent or hardcode an API key.
+- Do not put an API key in frontend code.
+- Do not commit API keys to GitHub.
+- Use an environment variable named:
+
+ANTHROPIC_API_KEY
+
+- Store API configuration on the server side.
+- If the API key is missing, show a clear setup message rather than pretending that AI generation worked.
+- Do not use fake/hardcoded AI responses.
+- Do not create fake API responses just to make the demo appear functional.
+- Make the code easy for me to connect to the real Claude API later.
+
+If possible, create a clean server-side API route/service such as:
+
+/api/generate
+
+The frontend should send the user's form data to this server endpoint.
+
+The server should then call the Anthropic API.
+
+Keep the API key completely hidden from the browser.
+
+TECHNICAL STRUCTURE:
+
+Use a modern, beginner-friendly web stack.
+
+Prefer:
+
+- Next.js
+- TypeScript
+- React
+- Tailwind CSS
+
+Use a clean component-based architecture.
+
+Keep the code organized and readable.
+
+Use sensible folders such as:
+
+/app
+/components
+/lib
+/api or appropriate Next.js API routes
+/public
+
+Do not add unnecessary technologies unless they are actually needed.
+
+For the initial MVP, do NOT add unnecessary features such as:
+
+- user accounts
+- payments
+- subscriptions
+- complex databases
+- team management
+- complicated dashboards
+
+Keep the MVP simple and functional.
+
+DESIGN:
+
+Make the application look like a legitimate modern SaaS/AI developer product.
+
+Design principles:
+
+- clean
+- minimal
+- premium
+- professional
+- modern
+- responsive
+- fast
+- good typography
+- strong spacing
+- subtle animations
+- accessible contrast
+- mobile friendly
+
+Avoid excessive gradients, unnecessary animations, generic AI-looking graphics, or childish UI.
+
+The visual quality should be good enough for a public early-stage startup website.
+
+MAIN APPLICATION PAGE:
+
+Create a polished interface containing:
+
+Header:
+- ContentPilot logo/name
+- "Open Source" indicator
+- GitHub link placeholder
+
+Hero:
+
+"Turn your expertise into a content strategy."
+
+Supporting text explaining what ContentPilot does.
+
+Then the content strategy generator form.
+
+Form fields:
+
+Business Type
+Target Audience
+Social Platform
+Product / Service
+Brand Tone
+
+Primary button:
+
+"Generate Strategy"
+
+When generation is happening:
+
+Show a proper loading state.
+
+When generation succeeds:
+
+Display the generated strategy in organized cards/sections.
+
+Include copy buttons where useful.
+
+When the API fails:
+
+Display a useful error message instead of crashing.
+
+LANDING PAGE:
+
+Also create a simple one-page marketing/landing page for ContentPilot.
+
+The landing page should explain:
+
+1. What ContentPilot is
+2. Who it is for
+3. How it works
+4. Key features
+5. Why it is different
+6. Open-source positioning
+7. Link to the application
+8. Link to GitHub
+9. Documentation/getting-started section
+
+Suggested positioning:
+
+"ContentPilot is an open-source AI content strategy platform that helps businesses turn their expertise into platform-specific social content."
+
+Do NOT describe it as merely:
+
+"an AI writing tool."
+
+Position it as an early-stage hosted AI platform/developer product.
+
+Include wording around:
+
+- open source
+- AI-powered content strategy
+- LLM-powered workflows
+- developer-friendly architecture
+- hosted platform
+- API-ready architecture
+
+However, do not make false claims about features that do not actually exist.
+
+Do not claim that ContentPilot has an API for third-party developers unless you actually implement one.
+
+GITHUB / OPEN SOURCE:
+
+Structure the project so it can easily be published as a public GitHub repository.
+
+Repository name:
+
+contentpilot
+
+Create a professional README.md containing:
+
+# ContentPilot
+
+A concise product description.
+
+Then sections:
+
+- What is ContentPilot?
+- Features
+- How it works
+- Tech stack
+- Architecture
+- Local development
+- Environment variables
+- Claude API setup
+- Deployment
+- Contributing
+- License
+
+The README should explain how another developer can clone the repository, install dependencies, configure the Anthropic API key, and run the application locally.
+
+Include an .env.example file containing:
+
+ANTHROPIC_API_KEY=
+
+Never put a real API key in the repository.
+
+DOCUMENTATION:
+
+Create a simple documentation/getting-started page explaining:
+
+1. What ContentPilot is
+2. How to run it locally
+3. How to create an Anthropic API key
+4. Where to put the API key
+5. How the Claude API integration works
+6. How to deploy the application
+7. How to contribute
+
+Keep this beginner friendly.
+
+OPEN-SOURCE POSITIONING:
+
+The eventual project should be suitable for describing like this:
+
+"ContentPilot is an open-source AI content strategy platform that uses LLM APIs to transform business information into structured, platform-specific content strategies."
+
+Do not exaggerate.
+
+The actual implementation must support the claims made on the landing page and README.
+
+DEPLOYMENT:
+
+Structure the project so it can later be deployed on:
+
+- Vercel
+- Netlify
+- or another modern hosting provider
+
+Prefer Vercel compatibility because this is a Next.js project.
+
+The application should work with environment variables in production.
+
+CUSTOM DOMAIN:
+
+Do not require me to configure a domain right now.
+
+However, structure the project so that after deployment I can connect a custom domain such as:
+
+contentpilot.ai
+or
+usecontentpilot.com
+
+The landing page should be suitable for being hosted at that custom domain.
+
+SEO:
+
+Add basic SEO metadata:
+
+- title
+- description
+- Open Graph metadata
+- favicon support
+
+Suggested title:
+
+"ContentPilot | AI Content Strategy Platform"
+
+Suggested description:
+
+"Open-source AI content strategy platform for businesses, creators, and real estate professionals."
+
+SECURITY:
+
+Follow basic security best practices.
+
+Never expose:
+
+ANTHROPIC_API_KEY
+
+to the client/browser.
+
+Validate user input before sending it to the LLM.
+
+Handle API errors gracefully.
+
+Do not log API keys.
+
+Do not commit secrets.
+
+Add .gitignore entries for:
+
+.env
+.env.local
+node_modules
+.next
+
+IMPORTANT BEGINNER REQUIREMENT:
+
+I am completely new to coding.
+
+After building the project, explain:
+
+1. What files were created
+2. What each important folder does
+3. How the application works
+4. Where the Claude API integration is
+5. How I will add my API key later
+6. How I can run the application
+7. How I can test it
+8. How I can publish it to GitHub
+9. How I can deploy it to Vercel
+10. How I can connect a custom domain later
+
+Do not assume I know terminal commands.
+
+When giving commands, explain exactly where I should paste them.
+
+IMPORTANT:
+
+Do not stop after creating a visual mockup.
+
+Build an actual functional application architecture.
+
+Do not use fake AI output.
+
+Do not hardcode fake generated content.
+
+Do not invent API keys.
+
+Do not expose secrets.
+
+Do not create unnecessary complexity.
+
+First build the complete MVP and make sure the application runs successfully.
+
+Then give me a clear beginner-friendly checklist for what I need to do next.
+
+The final result should be a legitimate early-stage open-source AI product that I can put on GitHub, deploy publicly, connect to a custom domain, and eventually use as the basis for a startup application.
